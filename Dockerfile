@@ -2,7 +2,7 @@ FROM node:0.10.36
 
 MAINTAINER "Justyna Ilczuk" <justyna.ilczuk@syncano.com>
 
-ENV LAST_REFRESHED 2015-02-25
+ENV LAST_REFRESHED 2015-02-27
 
 RUN apt-get update
 
