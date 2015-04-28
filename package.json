@@ -1,0 +1,8 @@
+{
+    "description": "dependencies for nodejs codebox",
+    "name": "nodejs-codebox",
+    "version": "0.0.1",
+    "dependencies": {
+        "request": "*"
+    }
+}
