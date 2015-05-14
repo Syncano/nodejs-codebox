@@ -3,6 +3,8 @@
     "name": "nodejs-codebox",
     "version": "0.0.1",
     "dependencies": {
-        "request": "*"
+        "request": "*",
+		"promise": "^7.0.1",
+	    "syncano-js-4": "^1.0.0"
     }
 }
