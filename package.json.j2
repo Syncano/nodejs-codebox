@@ -1,0 +1,14 @@
+{
+    "description": "dependencies for nodejs codebox",
+    "name": "nodejs-codebox",
+    "version": "0.0.1",
+    "dependencies": {
+        "request": "*",
+        "promise": "^7.0.1",
+
+        {% for machinepack in machinepacks %}"{{ machinepack }}": "*",
+        {% endfor %}
+
+        "syncano-js-4": "^1.0.0"
+    }
+}
