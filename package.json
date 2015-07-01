@@ -132,7 +132,6 @@
         "machinepack-jwtauth": "*",
         "machinepack-cloudflare": "*",
         
-
-        "syncano-js-4": "^1.0.0"
+        "syncano-js-4": "^4.1.2"
     }
 }
