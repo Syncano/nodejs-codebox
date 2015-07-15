@@ -133,6 +133,6 @@
     "machinepack-zendesk": "*",
     "machinepack-zip": "*",
 
-    "syncano-js-4": "^4.1.3"
+    "syncano-js-4": "^4.1.4"
   }
 }
