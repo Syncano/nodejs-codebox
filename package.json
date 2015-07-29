@@ -6,6 +6,7 @@
     "request": "*",
     "promise": "^7.0.1",
     "node-slackr": "^0.1.0",
+    "ioredis": "^1.6.1",
 
     "machinepack-2fa": "*",
     "machinepack-aes256": "*",
