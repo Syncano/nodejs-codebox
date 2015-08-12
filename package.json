@@ -7,6 +7,7 @@
     "promise": "^7.0.1",
     "node-slackr": "^0.1.0",
     "ioredis": "^1.6.1",
+    "lodash" : "^3.10.1",
 
     "machinepack-2fa": "*",
     "machinepack-aes256": "*",
@@ -135,6 +136,6 @@
     "machinepack-zip": "*",
 
     "syncano-js-4": "^4.1.4",
-    "syncano": "~0.2.1"
+    "syncano": "~0.2.5"
   }
 }
