@@ -10,6 +10,7 @@
     "lodash" : "^3.10.1",
     "geopoint" : "~1.0.1",
     "cheerio": "^0.19.0",
+    "braintree": "*",
 
     "machinepack-2fa": "*",
     "machinepack-aes256": "*",
