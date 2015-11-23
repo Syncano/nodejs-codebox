@@ -1,4 +1,4 @@
-FROM node:0.12
+FROM node:5.0
 
 MAINTAINER "Justyna Ilczuk" <justyna.ilczuk@syncano.com>
 
