@@ -138,6 +138,6 @@
     "machinepack-zip": "*",
 
     "syncano-js-4": "^4.1.4",
-    "syncano": "~0.3.0"
+    "syncano": "^0.3.53"
   }
 }
