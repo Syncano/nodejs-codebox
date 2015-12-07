@@ -1,8 +1,8 @@
 FROM node:5.0
 
-MAINTAINER "Justyna Ilczuk" <justyna.ilczuk@syncano.com>
+MAINTAINER "Syncano DevOps Team" <devops@syncano.com>
 
-ENV LAST_REFRESHED 2015-05-14
+ENV LAST_REFRESHED 2015-12-07
 
 RUN apt-get update
 
