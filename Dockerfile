@@ -1,12 +1,13 @@
 FROM ubuntu:trusty
-
 MAINTAINER "Syncano DevOps Team" <devops@syncano.com>
 
-# shameless copy-paste from https://github.com/nodejs/docker-node/blob/4d433ece4d221fac7e38efbec25ffea2dea56286/5.2/Dockerfile
-ENV LAST_REFRESHED 2015-12-16
+ENV LAST_REFRESHED 2015-12-07
 ENV NPM_CONFIG_LOGLEVEL info
-ENV NODE_VERSION 5.2.0
+ENV NODE_VERSION 5.0.0
 
+ADD package.json /tmp/package.json
+RUN apt-get update && apt-get install -y curl
+# copied from: https://github.com/nodejs/docker-node/blob/5d433ece4d221fac7e38efbec25ffea2dea56286/5.2/Dockerfile
 # gpg keys listed at https://github.com/nodejs/node
 RUN set -ex \
   && for key in \
@@ -20,8 +21,6 @@ RUN set -ex \
     gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
   done
 
-RUN apt-get update && apt-get install -y curl
-
 RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
   && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" \
   && gpg --verify SHASUMS256.txt.asc \
@@ -29,10 +28,8 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
   && rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc
 
-COPY package.json /tmp/package.json
 # enable everyone to use /tmp
 RUN chmod 1777 /tmp
-
 WORKDIR /tmp
 # create a special user to run code
 # user without root privileges greatly improves security
@@ -41,5 +38,4 @@ RUN mkdir /home/syncano && chown -R syncano /home/syncano
 RUN npm install
 
 USER syncano
-CMD ["node"]
-
+CMD [ "node" ]
