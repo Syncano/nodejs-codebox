@@ -1,0 +1,1 @@
+var Syncano = require("syncano");
