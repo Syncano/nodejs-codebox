@@ -5,6 +5,8 @@ from jinja2 import Template
 MACHINEPACKS_URL = 'http://node-machine.org/machinepacks'
 
 BLACK_LIST = {
+    'machines-elasticsearch',  # not present
+    'machinepack-assets',  # problem with installation
     'machinepack-weather',
     'machinepack-azure',
     'machinepack-mongodb',
