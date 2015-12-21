@@ -5,6 +5,7 @@ machine:
 dependencies:
   override:
     - sed -i 's/CMD/#CMD/g' Dockerfile
+    - ./generate_package_json.py
     - docker build -t quay.io/syncano/nodejs-codebox .
 
 test:
