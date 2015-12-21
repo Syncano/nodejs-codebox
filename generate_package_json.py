@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import requests
 from jinja2 import Template
 
