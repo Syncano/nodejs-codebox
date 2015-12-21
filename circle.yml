@@ -19,4 +19,4 @@ deployment:
       - sed -e "s|<REGISTRY>|$DOCKER_REGISTRY|g" -e "s|<EMAIL>|$DOCKER_EMAIL|g" -e "s|<AUTH>|$DOCKER_AUTH|g" < .dockercfg.template > ~/.dockercfg
       - sed -i 's/#CMD/CMD/g' Dockerfile
       - docker build -t quay.io/syncano/nodejs-codebox .
-      - docker pull quay.io/syncano/nodejs-codebox
+      - docker push quay.io/syncano/nodejs-codebox
