@@ -17,4 +17,4 @@ In a container you can use syncano library for node:
 var Syncano = require("syncano");
 ```
 
-More info about the library is [here](https://github.com/Syncano/syncano-js-lib).
+More info about the library is [here](https://github.com/syncano/syncano-js).
