@@ -1,6 +1,6 @@
 # nodejs-codebox
 
-This repository contains Dockerfile for Node image with built-in support for Syncano, selected JS libraries and Node machines.
+This repository contains Dockerfile for Node 5.0.0 image with built-in support for Syncano, selected JS libraries and Node machines.
 
 You can build the image yourself (requires Python packages: [requests](http://docs.python-requests.org/en/latest/), [jinja2](http://jinja.pocoo.org/docs/dev/) and connection to the Internet):
 
