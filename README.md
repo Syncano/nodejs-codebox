@@ -28,4 +28,4 @@ In a container you can use Syncano's JS Library:
 var Syncano = require("syncano");
 ```
 
-More info about the library is [here](https://github.com/Syncano/syncano-js-lib).
+More info about the library can be found [here](https://github.com/Syncano/syncano-js-lib).
