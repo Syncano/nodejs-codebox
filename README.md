@@ -1,20 +1,31 @@
 # nodejs-codebox
 
+This repository contains Dockerfile for Node 5.0.0 image with built-in support for Syncano, selected JS libraries and Node machines.
 
-This repository containes a Dockerfile for a Node container with built in support for syncano.
-
-You can build a container yourself (demands Python packages: requests and jinja2) or pull it from docker registry.
+You can build the image yourself (requires Python packages: [requests](http://docs.python-requests.org/en/latest/), [jinja2](http://jinja.pocoo.org/docs/dev/) and connection to the Internet):
 
 ```
 $ ./generate_package_json.py
-$ docker pull quay.io/syncano/nodejs-codebox
-$ docker run -it quay.io/syncano/nodejs-codebox
+$ docker build -t quay.io/syncano/nodejs-codebox .
 ```
 
-In a container you can use syncano library for node:
+or pull it from Docker registry:
+
+```
+$ docker pull quay.io/syncano/nodejs-codebox
+```
+
+Then you can run Docker container:
+
+```
+$ docker run -it quay.io/syncano/nodejs-codebox
+>
+```
+
+In a container you can use Syncano's JS Library:
 
 ```
 var Syncano = require("syncano");
 ```
 
-More info about the library is [here](https://github.com/syncano/syncano-js).
+More info about the library can be found [here](https://github.com/Syncano/syncano-js-lib).
