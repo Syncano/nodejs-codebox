@@ -33,7 +33,7 @@ RUN chmod 1777 /tmp
 WORKDIR /tmp
 # create a special user to run code
 # user without root privileges greatly improves security
-RUN groupadd -r syncano && useradd -r -g syncano syncano
+RUN useradd syncano -d /tmp -s /bin/bash
 RUN mkdir /home/syncano && chown -R syncano /home/syncano
 RUN npm install
 
