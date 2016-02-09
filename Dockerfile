@@ -36,7 +36,9 @@ WORKDIR /data
 # user without root privileges greatly improves security
 RUN useradd syncano -d /tmp -s /bin/bash
 RUN mkdir /home/syncano && chown -R syncano /home/syncano
-RUN npm install -g
+RUN npm install
 
 USER syncano
+ENV NODE_PATH /data/node_modules
+WORKDIR /tmp
 CMD [ "node" ]
