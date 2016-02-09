@@ -1,11 +1,12 @@
 FROM ubuntu:trusty
 MAINTAINER "Syncano DevOps Team" <devops@syncano.com>
 
-ENV LAST_REFRESHED 2015-12-07
+ENV LAST_REFRESHED 2016-02-09
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_VERSION 5.0.0
 
-ADD package.json /tmp/package.json
+RUN mkdir /data
+ADD package.json /data/package.json
 RUN apt-get update && apt-get install -y curl
 # copied from: https://github.com/nodejs/docker-node/blob/5d433ece4d221fac7e38efbec25ffea2dea56286/5.2/Dockerfile
 # gpg keys listed at https://github.com/nodejs/node
@@ -30,7 +31,7 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
 
 # enable everyone to use /tmp
 RUN chmod 1777 /tmp
-WORKDIR /tmp
+WORKDIR /data
 # create a special user to run code
 # user without root privileges greatly improves security
 RUN useradd syncano -d /tmp -s /bin/bash
