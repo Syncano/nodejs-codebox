@@ -3,7 +3,7 @@ MAINTAINER "Syncano DevOps Team" <devops@syncano.com>
 
 ENV LAST_REFRESHED 2016-02-09
 ENV NPM_CONFIG_LOGLEVEL info
-ENV NODE_VERSION 5.0.0
+ENV NODE_VERSION 5.6.0
 
 RUN mkdir /data
 ADD package.json /data/package.json
