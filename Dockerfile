@@ -9,7 +9,8 @@ RUN mkdir /data
 ADD package.json /data/package.json
 RUN apt-get update && apt-get install -y \
   curl \
-  imagemagick
+  imagemagick \
+  graphicsmagick
 
 # copied from: https://github.com/nodejs/docker-node/blob/5d433ece4d221fac7e38efbec25ffea2dea56286/5.2/Dockerfile
 # gpg keys listed at https://github.com/nodejs/node
