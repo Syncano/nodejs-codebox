@@ -53,5 +53,6 @@ RUN mkdir v1.0.0 && \
 
 USER syncano
 COPY scripts/* /usr/bin/
+ENV NODE_PATH /home/syncano/v1.0.0/node_modules
 WORKDIR /tmp
 CMD [ "node" ]
