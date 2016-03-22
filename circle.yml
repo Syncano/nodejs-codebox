@@ -8,12 +8,14 @@ dependencies:
   override:
     - pip install requests==2.7.0 jinja2==2.8
     - ./generate_package_json.py
-    - sed -i 's/CMD/#CMD/g' Dockerfile
     - docker build -t quay.io/syncano/nodejs-codebox .
 
 test:
   override:
-    -  docker run -it -v `pwd`/test.js:/tmp/test.js quay.io/syncano/nodejs-codebox node /tmp/test.js
+    - docker run -it -v `pwd`/test.js:/tmp/test.js quay.io/syncano/nodejs-codebox npm list | grep "syncano.*0.4.8" || exit 1
+    - docker run -it -v `pwd`/test.js:/tmp/test.js quay.io/syncano/nodejs-codebox npm-100 list | grep "syncano.*1.0.0" || exit 1
+    - docker run -it -v `pwd`/test.js:/tmp/test.js quay.io/syncano/nodejs-codebox node /tmp/test.js
+    - docker run -it -v `pwd`/test.js:/tmp/test.js quay.io/syncano/nodejs-codebox node560-100 /tmp/test.js
 
 deployment:
   production:
@@ -21,6 +23,4 @@ deployment:
       - master
     commands:
       - sed -e "s|<REGISTRY>|$DOCKER_REGISTRY|g" -e "s|<EMAIL>|$DOCKER_EMAIL|g" -e "s|<AUTH>|$DOCKER_AUTH|g" < .dockercfg.template > ~/.dockercfg
-      - sed -i 's/#CMD/CMD/g' Dockerfile
-      - docker build -t quay.io/syncano/nodejs-codebox .
       - docker push quay.io/syncano/nodejs-codebox

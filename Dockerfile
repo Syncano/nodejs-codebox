@@ -5,10 +5,9 @@ ENV LAST_REFRESHED 2016-03-02
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_VERSION 5.6.0
 
-RUN mkdir /data
-ADD package.json /data/package.json
 RUN apt-get update && apt-get install -y \
   curl \
+  git \
   imagemagick \
   graphicsmagick
 
@@ -35,14 +34,24 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
 
 # enable everyone to use /tmp
 RUN chmod 1777 /tmp
-WORKDIR /data
 # create a special user to run code
 # user without root privileges greatly improves security
 RUN useradd syncano -d /tmp -s /bin/bash
 RUN mkdir /home/syncano && chown -R syncano /home/syncano
-RUN npm install
+
+ADD package.json* /home/syncano/
+WORKDIR /home/syncano/
+RUN mkdir v0.4.8 && \
+    mv package.json.v048 v0.4.8/package.json && \
+    cd v0.4.8 && \
+    npm install
+
+RUN mkdir v1.0.0 && \
+    mv package.json.v100 v1.0.0/package.json && \
+    cd v1.0.0 && \
+    npm install
 
 USER syncano
-ENV NODE_PATH /data/node_modules
-WORKDIR /tmp
+WORKDIR /home/syncano/v0.4.8/
+COPY scripts/* /usr/bin/
 CMD [ "node" ]
