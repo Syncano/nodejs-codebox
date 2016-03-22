@@ -12,8 +12,6 @@ dependencies:
 
 test:
   override:
-    - docker run -it -v `pwd`/test.js:/tmp/test.js quay.io/syncano/nodejs-codebox npm list | grep "syncano.*0.4.8" || exit 1
-    - docker run -it -v `pwd`/test.js:/tmp/test.js quay.io/syncano/nodejs-codebox npm-100 list | grep "syncano.*1.0.0" || exit 1
     - docker run -it -v `pwd`/test.js:/tmp/test.js quay.io/syncano/nodejs-codebox node /tmp/test.js
     - docker run -it -v `pwd`/test.js:/tmp/test.js quay.io/syncano/nodejs-codebox node560-100 /tmp/test.js
 

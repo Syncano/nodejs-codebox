@@ -52,6 +52,6 @@ RUN mkdir v1.0.0 && \
     npm install
 
 USER syncano
-WORKDIR /home/syncano/v0.4.8/
 COPY scripts/* /usr/bin/
+WORKDIR /tmp
 CMD [ "node" ]

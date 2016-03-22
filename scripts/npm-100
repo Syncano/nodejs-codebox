@@ -1,2 +1,0 @@
-#!/bin/bash
-NODE_PATH=/home/syncano/v1.0.0/node_modules npm "$1"
