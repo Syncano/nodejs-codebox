@@ -47,7 +47,7 @@ RUN mkdir v0.4 && \
     npm install
 
 RUN mkdir v1.0 && \
-    mv package.json.v100 v1.0/package.json && \
+    mv package.json.v10 v1.0/package.json && \
     cd v1.0 && \
     npm install
 
