@@ -13,8 +13,8 @@ dependencies:
 test:
   override:
     - docker run -it -v `pwd`/test.js:/tmp/test.js quay.io/syncano/nodejs-codebox node /tmp/test.js
-    - docker run -it -v `pwd`/test.js:/tmp/test.js quay.io/syncano/nodejs-codebox node560-100 /tmp/test.js
-    - docker run -it -v `pwd`/test.js:/tmp/test.js quay.io/syncano/nodejs-codebox node560-048 /tmp/test.js
+    - docker run -it -v `pwd`/test.js:/tmp/test.js quay.io/syncano/nodejs-codebox node-lib0.4 /tmp/test.js
+    - docker run -it -v `pwd`/test.js:/tmp/test.js quay.io/syncano/nodejs-codebox node-lib1.0 /tmp/test.js
 
 deployment:
   production:
