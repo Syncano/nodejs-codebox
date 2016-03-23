@@ -41,18 +41,18 @@ RUN mkdir /home/syncano && chown -R syncano /home/syncano
 
 ADD package.json* /home/syncano/
 WORKDIR /home/syncano/
-RUN mkdir v0.4.8 && \
-    mv package.json.v048 v0.4.8/package.json && \
-    cd v0.4.8 && \
+RUN mkdir v0.4 && \
+    mv package.json.v04 v0.4/package.json && \
+    cd v0.4 && \
     npm install
 
-RUN mkdir v1.0.0 && \
-    mv package.json.v100 v1.0.0/package.json && \
-    cd v1.0.0 && \
+RUN mkdir v1.0 && \
+    mv package.json.v100 v1.0/package.json && \
+    cd v1.0 && \
     npm install
 
 USER syncano
 COPY scripts/* /usr/bin/
-ENV NODE_PATH /home/syncano/v0.4.8/node_modules
+ENV NODE_PATH /home/syncano/v0.4/node_modules
 WORKDIR /tmp
-CMD [ "node" ]
+CMD "node"

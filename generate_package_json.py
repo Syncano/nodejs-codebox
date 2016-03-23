@@ -24,5 +24,5 @@ if __name__ == '__main__':
     with open('package.json.j2', 'r') as f:
         template = Template(f.read())
 
-    with open('package.json.v100', 'w+') as f:
+    with open('package.json.v10', 'w+') as f:
         f.write(template.render(machinepacks=get_machinepacks_set()))
