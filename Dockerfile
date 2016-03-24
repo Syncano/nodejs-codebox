@@ -39,14 +39,16 @@ RUN chmod 1777 /tmp
 RUN useradd syncano -d /tmp -s /bin/bash
 RUN mkdir /home/syncano && chown -R syncano /home/syncano
 
-ADD package.json* /home/syncano/
+COPY package.json* /home/syncano/
+COPY *.tar.gz /tmp/
+
 WORKDIR /home/syncano/
-RUN mkdir v0.4 && \
+RUN tar xzvf /tmp/04.tar.gz && \
     mv package.json.v04 v0.4/package.json && \
     cd v0.4 && \
     npm install
 
-RUN mkdir v1.0 && \
+RUN tar xzvf /tmp/10.tar.gz && \
     mv package.json.v10 v1.0/package.json && \
     cd v1.0 && \
     npm install

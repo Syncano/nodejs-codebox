@@ -9,6 +9,8 @@ dependencies:
     - pip install requests==2.7.0 jinja2==2.8
     - ./generate_package_json.py
     - docker build -t quay.io/syncano/nodejs-codebox .
+    - wget https://s3.amazonaws.com/codebox-bucket/nodejs/10.tar.gz
+    - wget https://s3.amazonaws.com/codebox-bucket/nodejs/04.tar.gz
 
 test:
   override:
