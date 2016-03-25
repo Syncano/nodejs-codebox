@@ -2,6 +2,17 @@ FROM ubuntu:trusty
 MAINTAINER "Syncano DevOps Team" <devops@syncano.com>
 
 ENV LAST_REFRESHED 2016-03-25
+ENV SYNCANO_APIROOT https://api.syncano.io/
+
+RUN groupadd -r syncano && \
+    useradd -u 1000 -r -g syncano syncano -d /tmp -s /bin/bash && \
+    mkdir /home/syncano && \
+    chown -R syncano /home/syncano
+
+# enable everyone to use /tmp
+RUN chmod 1777 /tmp
+# -- CUT --
+
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_VERSION 5.6.0
 
@@ -31,13 +42,6 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && grep " node-v$NODE_VERSION-linux-x64.tar.gz\$" SHASUMS256.txt.asc | sha256sum -c - \
   && tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
   && rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc
-
-# enable everyone to use /tmp
-RUN chmod 1777 /tmp
-# create a special user to run code
-# user without root privileges greatly improves security
-RUN useradd syncano -d /tmp -s /bin/bash
-RUN mkdir /home/syncano && chown -R syncano /home/syncano
 
 COPY package.json* /home/syncano/
 COPY *.tar.gz /tmp/
