@@ -55,6 +55,6 @@ RUN tar xzvf /tmp/10.tar.gz && \
 
 USER syncano
 COPY scripts/* /usr/bin/
-ENV NODE_PATH /home/syncano/v0.4/node_modules
+ENV NODE_PATH /home/syncano/v1.0/node_modules
 WORKDIR /tmp
 CMD "node"
