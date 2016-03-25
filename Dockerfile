@@ -2,8 +2,20 @@ FROM ubuntu:trusty
 MAINTAINER "Syncano DevOps Team" <devops@syncano.com>
 
 ENV LAST_REFRESHED 2016-03-25
+ENV SYNCANO_APIROOT https://api.syncano.io/
+
+RUN groupadd -r syncano && \
+    useradd -u 1000 -r -g syncano syncano -d /tmp -s /bin/bash && \
+    mkdir /home/syncano && \
+    chown -R syncano /home/syncano
+
+# enable everyone to use /tmp
+RUN chmod 1777 /tmp
+# -- CUT BEGIN --
+
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_VERSION 5.6.0
+ENV NODE_PATH /home/syncano/v1.0/node_modules
 
 RUN apt-get update && apt-get install -y \
   curl \
@@ -32,13 +44,7 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
   && rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc
 
-# enable everyone to use /tmp
-RUN chmod 1777 /tmp
-# create a special user to run code
-# user without root privileges greatly improves security
-RUN useradd syncano -d /tmp -s /bin/bash
-RUN mkdir /home/syncano && chown -R syncano /home/syncano
-
+COPY scripts/* /usr/bin/
 COPY package.json* /home/syncano/
 COPY *.tar.gz /tmp/
 
@@ -53,8 +59,7 @@ RUN tar xzvf /tmp/10.tar.gz && \
     cd v1.0 && \
     npm install
 
+# -- CUT END --
 USER syncano
-COPY scripts/* /usr/bin/
-ENV NODE_PATH /home/syncano/v1.0/node_modules
 WORKDIR /tmp
 CMD "node"
