@@ -11,7 +11,7 @@ RUN groupadd -r syncano && \
 
 # enable everyone to use /tmp
 RUN chmod 1777 /tmp
-# -- CUT --
+# -- CUT BEGIN --
 
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_VERSION 5.6.0
@@ -59,6 +59,7 @@ RUN tar xzvf /tmp/10.tar.gz && \
     cd v1.0 && \
     npm install
 
+# -- CUT END --
 USER syncano
 WORKDIR /tmp
 CMD "node"
