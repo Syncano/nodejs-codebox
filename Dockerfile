@@ -15,6 +15,7 @@ RUN chmod 1777 /tmp
 
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_VERSION 5.6.0
+ENV NODE_PATH /home/syncano/v0.4/node_modules
 
 RUN apt-get update && apt-get install -y \
   curl \
@@ -43,6 +44,7 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
   && rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc
 
+COPY scripts/* /usr/bin/
 COPY package.json* /home/syncano/
 COPY *.tar.gz /tmp/
 
@@ -58,7 +60,5 @@ RUN tar xzvf /tmp/10.tar.gz && \
     npm install
 
 USER syncano
-COPY scripts/* /usr/bin/
-ENV NODE_PATH /home/syncano/v0.4/node_modules
 WORKDIR /tmp
 CMD "node"
