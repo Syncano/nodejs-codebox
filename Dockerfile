@@ -15,7 +15,7 @@ RUN chmod 1777 /tmp
 
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_VERSION 5.6.0
-ENV NODE_PATH /home/syncano/v0.4/node_modules
+ENV NODE_PATH /home/syncano/v1.0/node_modules
 
 RUN apt-get update && apt-get install -y \
   curl \
