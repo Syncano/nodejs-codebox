@@ -11,6 +11,7 @@ BLACK_LIST = {
     'machinepack-azure',
     'machinepack-mongodb',
     'machinepack-thumb',  # imagemagick
+    'pu-product-connect'
 }
 
 
