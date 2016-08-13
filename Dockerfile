@@ -36,9 +36,10 @@ RUN apt-get update && apt-get install -y \
   curl \
   git \
   imagemagick \
-  graphicsmagick
+  graphicsmagick \
+  xz-utils
 
-# copied from: https://github.com/nodejs/docker-node/blob/5d433ece4d221fac7e38efbec25ffea2dea56286/5.2/Dockerfile
+# copied from: https://github.com/nodejs/docker-node/blob/ae9e2d4f04a0fa82261df86fd9556a76cefc020d/6.3/wheezy/Dockerfile
 # gpg keys listed at https://github.com/nodejs/node
 RUN set -ex \
   && for key in \
