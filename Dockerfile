@@ -27,20 +27,20 @@ RUN set -ex \
   ; do \
     gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
   done
-  
+
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_VERSION 6.3.1
 ENV NODE_PATH /home/syncano/v1.0/node_modules
 
 RUN apt-get update && apt-get install -y \
   curl \
-  git \
-  imagemagick \
-  graphicsmagick \
-  xz-utils \
-  python \
   g++ \
-  make
+  git \
+  graphicsmagick \
+  imagemagick \
+  make \
+  python \
+  xz-utils
 
 # copied from: https://github.com/nodejs/docker-node/blob/ae9e2d4f04a0fa82261df86fd9556a76cefc020d/6.3/wheezy/Dockerfile
 # gpg keys listed at https://github.com/nodejs/node
