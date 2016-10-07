@@ -1,16 +1,15 @@
 machine:
-  python:
-    version: 2.7.9
   services:
     - docker
 
 dependencies:
   override:
-    - pip install requests==2.7.0 jinja2==2.8
+    - sudo pip install requests==2.11.1 jinja2==2.8 ansible==2.1.0
+    - chmod 600 image/id_rsa
     - ./generate_package_json.py
-    - wget https://s3.amazonaws.com/codebox-bucket/nodejs/04.tar.gz
-    - wget https://s3.amazonaws.com/codebox-bucket/nodejs/10.tar.gz
-    - docker build -t quay.io/syncano/nodejs-codebox .
+    - ./create_nodejs_image.sh $BUILD_LEVEL
+    - docker images
+    - docker history quay.io/syncano/nodejs-codebox
 
 test:
   override:

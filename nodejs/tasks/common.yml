@@ -1,0 +1,38 @@
+---
+- name: Add syncano group
+  group:
+    name: syncano
+    gid: 1000
+    state: present
+
+- name: Add syncano user
+  user:
+    name: syncano
+    group: syncano
+    uid: 1000
+    shell: /bin/bash
+    home: /home/syncano
+    state: present
+
+- name: Copy apt pkgs
+  copy:
+    src: pkglist
+    dest: /tmp/
+
+- name: List apt packages
+  shell:
+    cat /tmp/pkglist
+  register: pkgs
+
+- name: Install packages
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+    "{{ pkgs.stdout_lines }}"
+
+- name: Allow public usage of /tmp
+  file:
+    name: /tmp
+    mode: "1777"
