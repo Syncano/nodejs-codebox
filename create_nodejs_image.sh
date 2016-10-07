@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $1 != "--partial" ]
+if [ ${1:-full} != "--partial" ]
 then
     docker build -t quay.io/syncano/nodejs-codebox .
 fi
