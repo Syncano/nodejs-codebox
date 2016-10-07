@@ -1,0 +1,44 @@
+---
+- include: common.yml
+
+- name: Create runtime dirs
+  file:
+    path: "/home/syncano/{{ item }}/"
+    state: directory
+  with_items:
+    - v0.4
+    - v1.0
+
+- name: Copy files
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: "{{ item.mode | default('0644') }}"
+  with_items:
+    - src: scripts/node-lib0.4
+      dest: /usr/bin/
+      mode: "0755"
+    - src: scripts/node-lib1.0
+      dest: /usr/bin/
+      mode: "0755"
+    - src: install_node.sh
+      dest: /tmp/
+      mode: "0755"
+    - src: package.json.v04
+      dest: /home/syncano/v0.4/package.json
+    - src: package.json.v10
+      dest: /home/syncano/v1.0/package.json
+
+- name: Run NODE install script
+  shell:
+    ./install_node.sh
+  args:
+    chdir: /tmp
+    executable: /bin/bash
+
+- name: Install npm package
+  npm:
+    path: "/home/syncano/{{ item }}/"
+  with_items:
+    - v0.4
+    - v1.0

@@ -6,7 +6,7 @@ You can build the image yourself (requires Python packages: [requests](http://do
 
 ```
 $ ./generate_package_json.py
-$ docker build -t quay.io/syncano/nodejs-codebox .
+$ ./create_nodejs_image.sh
 ```
 
 or pull it from Docker registry:
