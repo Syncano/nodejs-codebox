@@ -1,2 +1,2 @@
 #!/bin/bash
-NODE_PATH=/home/syncano/v1.0/node_modules node "$1"
+NODE_PATH=/home/syncano/v1.0/node_modules node "$@"
