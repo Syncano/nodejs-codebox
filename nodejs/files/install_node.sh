@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NPM_CONFIG_LOGLEVEL=info
-NODE_VERSION=6.3.1
+NODE_VERSION=6.9.1
 
 # gpg keys listed at https://github.com/nodejs/node
 set -ex \
