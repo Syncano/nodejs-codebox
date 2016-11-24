@@ -7,3 +7,6 @@ COPY image/id_rsa.pub /root/.ssh/authorized_keys
 RUN wget https://github.com/Yelp/dumb-init/releases/download/v1.0.3/dumb-init_1.0.3_amd64.deb
 RUN dpkg -i dumb-init_*.deb
 EXPOSE 22
+
+WORKDIR /tmp
+CMD "node"
