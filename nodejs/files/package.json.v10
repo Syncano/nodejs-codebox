@@ -23,7 +23,7 @@
     "vd" : "~0.8.2",
     "moment" : "~2.12.0",
     "html-pdf" : "~2.0.1",
-    "superagent" : "~0.19.0",
+    
     "bluebird": "~2.9.12", 
     "cluster": "^0.7.7", 
     "cron": "^1.1.0", 
@@ -40,6 +40,7 @@
     "winston": "^2.2.0", 
     "winston-daily-rotate-file": "^1.0.1",
     "plaid": "~1.0.10",
+    "adm-zip": "^0.4.7",
 
     "dk-machinepack-facebookads": "*",
     "machinepack-2fa": "*",
@@ -77,9 +78,11 @@
     "machinepack-email": "*",
     "machinepack-emailaddresses": "*",
     "machinepack-facebook": "*",
+    "machinepack-facebook-oauth": "*",
     "machinepack-facebookads": "*",
     "machinepack-findtorrent": "*",
     "machinepack-firebase": "*",
+    "machinepack-forecast.io": "*",
     "machinepack-foursquare": "*",
     "machinepack-foursquareimageproxy": "*",
     "machinepack-fred": "*",
@@ -215,6 +218,6 @@
     
 
     "syncano-js-4": "^4.1.4",
-    "syncano": "~1.0.19"
+    "syncano": "~1.0.28"
     }
 }
