@@ -70,7 +70,7 @@
     "machinepack-hackerrank": "~0.1.2",
     "machinepack-headers": "~0.3.2",
     "machinepack-heroku": "~0.2.0",
-    "machinepack-http": "~2.4.0",
+    "machinepack-http": "~3.0.0",
     "machinepack-ic": "~0.1.0",
     "machinepack-idme": "~1.0.5",
     "machinepack-ifthen": "~1.3.0",
