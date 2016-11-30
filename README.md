@@ -29,3 +29,7 @@ var Syncano = require("syncano");
 ```
 
 More info about the library can be found [here](https://github.com/Syncano/syncano-js-lib).
+
+# Adding Packages
+
+To add a package, please create a Pull Request a custom branch into `master` after adding the package with a specific version number to [this file (nodejs/files/package.json.v10)](https://github.com/Syncano/nodejs-codebox/blob/intercom-sdk/nodejs/files/package.json.v10).
