@@ -212,6 +212,7 @@
     "paidup-commerce-connect": "~0.14.13",
     "paidup-product-connect": "~0.5.0",
     "paidup-schedule-connect": "~2.7.0",
+    "plivo": "^0.4.0",
     "sane-auth": "~0.3.3",    
 
     "syncano-js-4": "^4.1.4",
