@@ -32,4 +32,4 @@ More info about the library can be found [here](https://github.com/Syncano/synca
 
 # Adding Packages
 
-To add a package, please create a Pull Request a custom branch into `master` after adding the package with a specific version number to [this file (nodejs/files/package.json.v10)](https://github.com/Syncano/nodejs-codebox/blob/master/nodejs/files/package.json.v10).
+To add a package, please create a Pull Request a custom branch into `master` after adding the package with a specific version number to these files [(nodejs/files/package.json.v10)](https://github.com/Syncano/nodejs-codebox/blob/master/nodejs/files/package.json.v10) and [(nodejs/files/package.json.j2)](https://github.com/Syncano/nodejs-codebox/blob/master/nodejs/files/package.json.j2)
