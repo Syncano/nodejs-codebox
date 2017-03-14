@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # from https://github.com/nodejs/docker-node/blob/debf4ea17cee8c078df632e975ea69f1969094c0/6.10/wheezy/Dockerfile
-groupadd --gid 1000 node \
-  && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
+# without creating user and yarn
 
 # gpg keys listed at https://github.com/nodejs/node
 set -ex \
