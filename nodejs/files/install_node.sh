@@ -19,8 +19,8 @@ set -ex \
     gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
   done
 
-NPM_CONFIG_LOGLEVEL info
-NODE_VERSION 6.10.0
+NPM_CONFIG_LOGLEVEL=info
+NODE_VERSION=6.10.0
 
 curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" \
   && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" \
