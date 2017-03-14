@@ -40,7 +40,7 @@
     "q": "1.1.2", 
     "winston": "^2.2.0", 
     "winston-daily-rotate-file": "^1.0.1",
-    "plaid": "~1.1.1",
+    "plaid": "^2.0.1",
     "adm-zip": "^0.4.7",
 
     "dk-machinepack-facebookads": "~1.3.31",
