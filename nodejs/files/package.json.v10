@@ -214,7 +214,8 @@
     "paidup-schedule-connect": "~2.7.0",
     "plivo": "^0.4.0",
     "sane-auth": "~0.3.3",    
-
+    "mapbox": "^1.0.0-beta6",
+    
     "syncano-js-4": "^4.1.4",
     "syncano": "~1.0.28"
     }
