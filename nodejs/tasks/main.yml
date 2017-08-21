@@ -36,6 +36,14 @@
     chdir: /tmp
     executable: /bin/bash
 
+- name: Install npm global package
+  npm:
+    name: "{{ item }}"
+    global: yes
+  with_items:
+    - electron-pdf
+    - soap
+
 - name: Install npm package
   npm:
     path: "/home/syncano/{{ item }}/"
