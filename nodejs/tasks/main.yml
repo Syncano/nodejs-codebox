@@ -38,7 +38,7 @@
 
 - name: Install npm global package
   npm:
-    name: {{ item }}
+    name: "{{ item }}"
     global: yes
   with_items:
     - electron-pdf
