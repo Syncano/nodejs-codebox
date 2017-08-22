@@ -41,7 +41,6 @@
     name: "{{ item }}"
     global: yes
   with_items:
-    - electron-pdf
     - soap
 
 - name: Install npm package

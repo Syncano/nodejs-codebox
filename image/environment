@@ -1,3 +1,2 @@
 SYNCANO_APIROOT=https://api.syncano.io/
-NODE_PATH=/home/syncano/v1.0/node_modules
 NPM_CONFIG_LOGLEVEL=info
