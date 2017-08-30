@@ -10,3 +10,4 @@ RUN make install
 FROM node:8-alpine
 RUN apk --no-cache add fuse zlib lzo lz4 xz
 COPY --from=0 /usr/local/bin/squashfuse /usr/local/bin/squashfuse
+RUN mkdir /env && chown node:node /env
