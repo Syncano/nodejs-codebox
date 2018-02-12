@@ -1,5 +1,5 @@
-FROM node:8-wheezy
-ENV version 0.1.100
+FROM node:8-stretch
+ENV version 0.1.101
 RUN apt-get update && apt-get install -y libfuse-dev \
     && rm -rf /var/lib/apt/lists/*
 RUN wget https://github.com/vasi/squashfuse/releases/download/${version}/squashfuse-${version}.tar.gz
@@ -8,7 +8,7 @@ WORKDIR /squashfuse-${version}
 RUN ./configure
 RUN make install
 
-FROM node:8-wheezy
+FROM node:8-stretch
 RUN apt-get update && apt-get install -y fuse \
     && rm -rf /var/lib/apt/lists/*
 COPY --from=0 /usr/local/bin/squashfuse /usr/local/bin/squashfuse
