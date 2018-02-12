@@ -1,8 +1,8 @@
 FROM node:8-stretch
-ENV version 0.1.101
+ENV SQUASHFUSE_VERSION 0.1.101
 RUN apt-get update && apt-get install -y libfuse-dev \
     && rm -rf /var/lib/apt/lists/*
-RUN wget https://github.com/vasi/squashfuse/releases/download/${version}/squashfuse-${version}.tar.gz
+RUN wget https://github.com/vasi/squashfuse/archive/${SQUASHFUSE_VERSION}.tar.gz
 RUN tar zxf squashfuse-${version}.tar.gz
 WORKDIR /squashfuse-${version}
 RUN ./configure
